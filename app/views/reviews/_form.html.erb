@@ -26,6 +26,12 @@
     <%= form.text_area :content %>
   </div>
 
+  <div class="field">
+    <%= form.label :movie_id %>
+    <%= form.select :movie_id, movies.pluck(:title, :id) %>
+  </div>
+
+
   <div class="actions">
     <%= form.submit %>
   </div>

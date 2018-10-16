@@ -15,10 +15,12 @@ class ReviewsController < ApplicationController
   # GET /reviews/new
   def new
     @review = Review.new
+    @movies = Movie.all
   end
 
   # GET /reviews/1/edit
   def edit
+    @movies = Movie.all
   end
 
   # POST /reviews
@@ -75,6 +77,6 @@ class ReviewsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def review_params
-      params.require(:review).permit(:Author, :rating, :content)
+      params.require(:review).permit(:Author, :rating, :content, :movie_id)
     end
 end
