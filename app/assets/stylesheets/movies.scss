@@ -1,3 +1,39 @@
 // Place all the styles related to the Movies controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+h1{
+    font-size: 50px;
+    text-align: center;
+    text-decoration: underline;
+}
+
+table{  
+
+    background: lightblue;
+    
+    // .thead{
+    //     background: green; 
+    // }
+
+    // .tbody{
+
+    //     background: lightblue;
+    // }
+}
+
+thead{
+    background: #2E382E; 
+    color: white;
+}
+
+tbody{
+
+    background: #50C9CE;
+    padding: 10px;
+}
+
+td{
+    // height:20px;
+    // width: 20px;  
+}

@@ -1,3 +1,5 @@
+require "uri"
+
 class MoviesController < ApplicationController
   before_action :set_movie, only: [:show, :edit, :update, :destroy]
 
@@ -25,6 +27,12 @@ class MoviesController < ApplicationController
   # POST /movies.json
   def create
     @movie = Movie.new(movie_params)
+
+    hash = OmdbService.new
+     escaped_title = URI.escape(@movie.title)
+     @movie.image =  hash.get_image_by_title(escaped_title)
+     @movie.plot = hash.get_plot_by_title(escaped_title)
+  
 
     respond_to do |format|
       if @movie.save
@@ -69,6 +77,6 @@ class MoviesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def movie_params
-      params.require(:movie).permit(:title, :release_date, :genre)
+      params.require(:movie).permit(:title, :release_date, :genre, :image, :plot)
     end
 end
